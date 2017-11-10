@@ -193,6 +193,10 @@ static const NSInteger kHeaderZIndex = 1024;
     }
     CGSize size = [super collectionViewContentSize];
     size.height += self.parallaxHeaderReferenceSize.height;
+    
+    CGFloat expend = CGRectGetHeight(self.collectionView.frame) + self.parallaxHeaderReferenceSize.height - size.height;
+    expend = MAX(0, expend);
+    size.height += expend;
     return size;
 }
 
